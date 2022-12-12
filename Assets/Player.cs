@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using TMPro;
+using EZCameraShake;
 public class Player : MonoBehaviour {
-    public float speed = 150f; // tốc độ di chuyển trên bàn phím
+    public float speed = 150f; //toc do di chuyen tren ban phim
 
     private Rigidbody2D rb;
 
     public float mapWidth = 3.25f; 
-    // giới hạn chiều ngang di chuyển của player tránh nó chạy ra khỏi màn hình
+    //gioi han di chuyen tren man hinhf
 
-    public float MouseSpeed = 5f; // tốc độ di chuyển bằng chuột
+    public float MouseSpeed = 5f; // toc do di chuot
 
     public float slowness = 10f; // slow motion khi player thua
 
+
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
@@ -36,8 +39,11 @@ public class Player : MonoBehaviour {
 
     }
 
+
+
     void OnCollisionEnter2D() {
         EndGame();
+           
     }
 
     public void EndGame() {
@@ -58,4 +64,5 @@ public class Player : MonoBehaviour {
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
 }
